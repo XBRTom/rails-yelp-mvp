@@ -1,11 +1,21 @@
+
 <h1>Restaurant List</h1>
+<br>
+<%= link_to new_restaurant_path do %>
+<button type="button" class="btn btn-primary">Add a restaurant</button>
+<% end %>
 
-<ul>
+<div class="container">
   <% @restaurants.each do |restaurant| %>
-    <li>
-      <%= link_to restaurant.name, restaurant_path(restaurant.id)  %>
-    </li>
+    <div class="row">
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= restaurant.name %></h5>
+            <a href="#" class="card-link"><%= link_to 'show details', restaurant_path(restaurant.id)  %></a>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
-
-<%= link_to 'Add a new restaurant', new_restaurant_path %>
+</div>
